@@ -109,17 +109,21 @@ void	handler(int signum)
 	}
 }
 
-int main()
+int main(int argc, char **argv, char **envp)
 {
 	char		*cmd;
 	t_token		*token_head;
 	t_cmd_table	*cmd_table;
-
+    t_env   *env;
+    
+    (void)argc;
+    (void)argv;
 	signal(SIGINT, handler);
 	signal(SIGQUIT, SIG_IGN);
+    env = init_env_list(envp);
 	while (1337)
 	{
-		cmd = readline("minishell$ ");
+        cmd = readline("minishell$ ");
 		if (!cmd || !*cmd)
 			return (free(cmd), rl_clear_history(), 0);
 		if (ft_strlen(cmd) == 1 && cmd[0] == 4)
@@ -133,16 +137,18 @@ int main()
 		token_head = tokenize(cmd);
 		if (!token_head)
 			return (free(cmd), rl_clear_history(), 1);
-		print_token_list(token_head);
+		//print_token_list(token_head);
 		cmd_table = parse(token_head);
 		if (!cmd_table)
 			return (free(cmd), rl_clear_history(), \
 			ft_token_lstclear(&token_head, free), 1);
-		print_cmd_table(cmd_table);
+		//print_cmd_table(cmd_table);
+        exec(cmd_table, env);
 		free(cmd);
 		ft_token_lstclear(&token_head, free);
 		free_table(cmd_table);
 		token_head = NULL;
 		cmd_table = NULL;
+        
 	}
 }

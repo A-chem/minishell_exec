@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkoujan <kkoujan@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: achemlal <achemlal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:36:09 by kkoujan           #+#    #+#             */
-/*   Updated: 2025/04/03 16:12:40 by kkoujan          ###   ########.fr       */
+/*   Updated: 2025/04/07 11:29:21 by achemlal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@
 # include "./error_checker.h"
 # include "./tokenizer.h"
 # include "./parser.h"
+# include "./executor.h"
 #endif
