@@ -2,14 +2,14 @@
 
 void builtin_env(t_env *env)
 {
+    if(!env)
+        ft_putstr_fd("not found\n", 2);
     while (env)
     {
         if (env->value)
         {
-            ft_putstr_fd(env->key, 1);
-            ft_putstr_fd("=", 1);
-            ft_putstr_fd(env->value, 1);
-            ft_putstr_fd("\n", 1);
+            printf("%s", env->key);
+            printf("%s\n",env->value);
         }
         env = env->next;
     }
