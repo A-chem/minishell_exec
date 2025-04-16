@@ -3,6 +3,7 @@
 void builtin_pwd()
 {
     char cwd[1024];
+    
     if (getcwd(cwd, sizeof(cwd)))
     {
         ft_putstr_fd(cwd, 1);

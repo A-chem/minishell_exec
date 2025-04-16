@@ -2,12 +2,15 @@
 void handle_plus(t_env **env, char **key, char **value, int flag)
 {
     t_env *curr;
-    
+    t_env *new_node;
+    char *str;
+
     curr = *env;
     *key = ft_strtrim(*key, "+=");
     *key = ft_strjoin(*key, "=");
+    str = *value;
     if(!*key)
-        return ;
+    return ;
     if(flag == 1)
     {
         while(curr)
@@ -15,11 +18,14 @@ void handle_plus(t_env **env, char **key, char **value, int flag)
             if(ft_strcmp(curr->key, *key) == 0)
             {
                 curr->value = ft_strjoin(curr->value, *value);
+                return ;
             }
             curr =  curr->next;
         }
     }
-
+    new_node = create_env_node(*key, str);
+    add_node(env, new_node);
+    
 }
 
 int update_var(t_env **env, char *key, char *value)

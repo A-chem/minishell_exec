@@ -121,6 +121,8 @@ int main(int argc, char **argv, char **envp)
 	signal(SIGINT, handler);
 	signal(SIGQUIT, SIG_IGN);
     env = init_env_list(envp);
+    handle_shlvl(&env);
+    init_pwd(&env);
 	while (1337)
 	{
         cmd = readline("minishell$ ");
