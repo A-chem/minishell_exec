@@ -131,11 +131,11 @@ int main(int argc, char **argv, char **envp)
 		if (ft_strlen(cmd) == 1 && cmd[0] == 4)
 			return (0);
 		add_history(cmd);
-		if (!syntax_error(cmd))
-		{
-			free(cmd);
-			continue ;
-		}
+		// if (!syntax_error(cmd))
+		// {
+		// 	free(cmd);
+		// 	continue ;
+		// }
 		token_head = tokenize(cmd);
 		if (!token_head)
 			return (free(cmd), rl_clear_history(), 1);

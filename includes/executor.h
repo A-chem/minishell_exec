@@ -5,6 +5,7 @@
 #include <limits.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <fcntl.h>
 
 typedef struct s_env
 {
@@ -46,7 +47,15 @@ void builtin_exit(t_simple_cmd **data);
 void  builtin_unset(t_simple_cmd **data, t_env *env);
 
 void exec_cmd(t_simple_cmd **data, char **env_arr);
+int	check_exec_cmd(char *cmd, char **env);
+int	ft_check_path_cmd(char *cmd);
+char	*fet_path(char **env);
+char	*ft_found_cmd(char *cmd, char **path);
+int	pars_cmd_1(char *cmd);
+int	pars_cmd_2(char **cmd_split, char **env);
+int	pars_cmd_3(char **cmd_split, char **env);
+void	ft_double_free(char **str);
 
-
+void inf_outf_cmd(t_simple_cmd **data);
 
 #endif

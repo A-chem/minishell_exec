@@ -41,7 +41,9 @@ int	check_exec_cmd(char *cmd, char **env)
 	char	**cmd_split;
 
 	cmd_split = ft_split(cmd, ' ');
-	if (ft_check_path_cmd(cmd) == 1)
+	if(pars_cmd_1(cmd) == -1)
+		return -1;
+	else if (ft_check_path_cmd(cmd) == 1)
 	{
 		if (pars_cmd_2(cmd_split, env) == -1)
 			return (-1);

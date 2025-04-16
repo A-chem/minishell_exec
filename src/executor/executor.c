@@ -27,6 +27,9 @@ int is_builtin(char *cmd)
 }
 void single_cmd(t_simple_cmd **data, t_env *env, char **env_arr)
 {
+    printf("im here %s\n" ,(*data)->args[0]);
+    if((*data)->redirs->type ==  REDIR_IN)
+        printf("<<<<<<\n");
    if(is_builtin((*data)->args[0]))
        exec_builtin(data, env, env_arr);
    else
@@ -35,6 +38,8 @@ void single_cmd(t_simple_cmd **data, t_env *env, char **env_arr)
 void exec(t_cmd_table *data, t_env *env)
 {
     char **env_arr;
+ 
+  
     
 
     env_arr = env_list_to_array(env);

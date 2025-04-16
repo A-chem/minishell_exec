@@ -1,0 +1,11 @@
+add
+includes
+lib
+ls
+main.c
+main.o
+makefile
+minishell
+README.md
+src
+test
